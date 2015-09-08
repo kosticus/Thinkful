@@ -1,3 +1,6 @@
+var ul = document.createElement("ul");
+document.getElementById("output").appendChild(ul);
+
 var answer = prompt("Please pick a number from 1-100");
 
 function numRequired() {
@@ -16,19 +19,21 @@ while (answer % 1 != 0) {
 
 function fizzbuzz(answer) {
 	for (var i = 1; i <= +answer; i++) {
+		el = document.createElement("li");
 			if (i % 15 === 0) {
-			console.log("fizzbuzz");
+			el.textContent = "Fizzbuzz";;
 			}
 		else if (i % 3 === 0) {
-			console.log("fizz");
+			el.textContent = "Fizz";
 			}
 		else if (i % 5 === 0) {
-			console.log("buzz");
+			el.textContent = "Buzz";
 			} 
 		else {
-			console.log(i);
+			el.textContent = i;
 			}
 		}
+		ul.appendChild(el);
 	}
 
 fizzbuzz(answer);
