@@ -1,10 +1,14 @@
+(function () {
+"use strict";
+
+
 var quiz = {
 	"name":"Music Trivia",
 	"description":"How much music trivia do you know?",
 	"questions": [
-		{ "question": "Which symphony orchestra was booked to travel on the Titanic but changed boats at the last minute?", "choices": ["Berlin", "London", "New York", "Leipzig"], "correctAnswer": "London" },
-		{ "question": "Which composer ruined his own performance career by utilizing a home-made finger-stretching device?", "choices": ["Schubert", "Liszt", "Schumann", "Rachmaninoff"], "correctAnswer": "Schumann"},
-		{ "question": "What opera did Mozart write on the morning of its premiere?", "choices": ["Don Giovanni", "Le nozze di Figaro", "Die Zauberflöte", "Così fan tutte"], "correctAnswer": "Don Giovanni" }
+		{ "question": "Which symphony orchestra was booked to travel on the Titanic but changed boats at the last minute?", "answer": "London Symphony Orchestra" },
+		{ "question": "Which composer ruined his own performance career by utilizing a home-made finger-stretching device?", "answer": "Schumann" },
+		{ "question": "What opera did Mozart write on the morning of its premiere?", "answer": "Don Giovanni" }
 	]
 }
 
@@ -49,9 +53,9 @@ function play(quiz){
 	hide($start);
 	show($form);
 	// add event listener to form for when it's submitted
-	$form.addEventListener('click', function(event) {
+	$form.addEventListener('submit', function(event) {
 		event.preventDefault();
-		check(event.target.value);
+		check($form[0].value);
 	}, false);
 
 	var i = 0;
@@ -61,35 +65,21 @@ function play(quiz){
 	//nested functions
 
 	function chooseQuestion() {
+		console.log("chooseQuestion() invoked");
 		var question = quiz.questions[i].question;
 		ask(question);
 	}
 
 	function ask(question){
+		console.log("ask() invoked");
 		update($question,question);
-		//clear the previous options
-		$form.innerHTML = "";
-		//create an array to put the different options in and a button variable
-		var options = [], button;
-		var answers = quiz.questions[i].choices
-		var option1 = answers[0];
-		options.push(option1);
-		var option2 = answers[1];
-		options.push(option2);
-		var option3 = answers[2];
-		options.push(option3);
-		var option4 = answers[3];
-		options.push(option4);
-		options.forEach(function(name) {
-			button = document.createElement("button");
-			button.value = name;
-			button.textContent = name;
-			$form.appendChild(button);
-		});
+		$form[0].value = "";
+		$form[0].focus(); 
 	}
 
 	function check(answer){
-		if(answer === quiz.questions[i].correctAnswer) {
+		console.log("check() invoked");
+		if(answer === quiz.questions[i].answer) {
 			update($feedback,"Correct!","right");
 			//increase score by 1
 			score++;
@@ -107,9 +97,12 @@ function play(quiz){
 
 
 	function gameOver() {
+		console.log("gameOver() invoked");
 		//inform the player that the game has finished and tell them how many points they have scored
 		update($question,"Game Over! You scored " + score + " points.");
 		hide($form);
 		show($start);
 	}
 }
+
+}())
