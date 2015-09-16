@@ -5,16 +5,16 @@
 
 header {
 	font: bold 36px/120% Arial, Helvetica, sans-serif;
-	background: #00004C;
-	color: #F6FAFF;
+	background: #192823;
+	color: #d0c6b1;
 	text-transform: uppercase;
 }
 
 section p {
 	font: bold 24px/150% Arial, Helvetica, sans-serif;
-	background: #ccc;
+	background: #d0c6b1;
 	border: #999 2px solid;
-	color: #666;
+	color: #192823;
 	text-align: center;
 	padding: 10px;
 	margin: 10px auto;
@@ -24,13 +24,13 @@ section p {
 .right {
 	background: #0c0;
 	border: #090 2px solid;
-	color: #060;
+	color: ##218559;
 }
 
 .wrong {
-	background: #c00;
+	background: #dd1e2f;
 	border: #900 2px solid;
-	color: #600;
+	color: #0000000;
 }
 
 input, button {
@@ -44,7 +44,7 @@ input, button {
 body {
 	width: 400px;
 	margin: 0 auto;
-	background: #fff;
+	background: #ffffff;
 	height: 100vh;
 }
 
