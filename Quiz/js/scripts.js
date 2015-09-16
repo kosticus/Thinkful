@@ -4,7 +4,10 @@ var quiz = {
 	"questions": [
 		{ "question": "Which symphony orchestra was booked to travel on the Titanic but changed boats at the last minute?", "choices": ["Berlin", "London", "New York", "Leipzig"], "correctAnswer": "London" },
 		{ "question": "Which composer ruined his own performance career by utilizing a home-made finger-stretching device?", "choices": ["Schubert", "Liszt", "Schumann", "Rachmaninoff"], "correctAnswer": "Schumann"},
-		{ "question": "What opera did Mozart write on the morning of its premiere?", "choices": ["Don Giovanni", "Le nozze di Figaro", "Die Zauberflöte", "Così fan tutte"], "correctAnswer": "Don Giovanni" }
+		{ "question": "What opera did Mozart write on the morning of its premiere?", "choices": ["Don Giovanni", "Le nozze di Figaro", "Die Zauberflöte", "Così fan tutte"], "correctAnswer": "Don Giovanni" },
+		{ "question": "Which composer hit his foot with his conducting staff and eventually died from the injury?", "choices": ["Johann Pachelbel", "Antonio Vivalid", "Domenico Scarlatti", "Jean-Baptiste Lully"], "correctAnswer": "Jean-Baptiste Lully" },
+		{ "question": "An early version of the trombone was called what?", "choices": ["Faggot", "Shawm", "Ocarina", "Sackbut"], "correctAnswer": "Sackbut" },
+		{ "question": "Which great composer went completely deaf?", "choices": ["Bach", "Beethoven", "Mozart", "Wagner"], "correctAnswer": "Beethoven" }
 	]
 }
 
@@ -41,6 +44,8 @@ $start.addEventListener('click', function() { play(quiz) } , false);
 
 //hide the form at the start of the game
 hide($form);
+
+//// function definitions ////
 
 function play(quiz){
 	var score = 0 // initialize score
